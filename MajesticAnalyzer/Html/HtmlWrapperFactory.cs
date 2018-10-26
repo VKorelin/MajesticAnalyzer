@@ -4,16 +4,13 @@ namespace MajesticAnalyzer.Html
 {
     public class HtmlWrapperFactory : IHtmlWrapperFactory
     {
-        private readonly Func<Uri, string, IHtmlWrapper> factory;
+        private readonly Func<Uri, string, IHtmlWrapper> _factory;
 
         public HtmlWrapperFactory(Func<Uri, string, IHtmlWrapper> factory)
         {
-            this.factory = factory;
+            _factory = factory;
         }
 
-        public IHtmlWrapper Create(Uri uri, string html)
-        {
-            return factory(uri, html);
-        }
+        public IHtmlWrapper Create(Uri uri, string html) => _factory(uri, html);
     }
 }

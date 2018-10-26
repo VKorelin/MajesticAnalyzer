@@ -4,24 +4,21 @@ namespace MajesticAnalyzer.Html
 {
     public class HtmlLoader : IHtmlLoader, IDisposable
     {
-        private readonly IHtmlWrapperFactory htmlFactory;
-        private readonly IWebClientWrapper webClient;
+        private readonly IHtmlWrapperFactory _htmlFactory;
+        private readonly IWebClientWrapper _webClient;
 
         public HtmlLoader(IHtmlWrapperFactory htmlFactory, IWebClientWrapper webClient)
         {
-            this.htmlFactory = htmlFactory;
-            this.webClient = webClient;
+            _htmlFactory = htmlFactory;
+            _webClient = webClient;
         }
 
         public IHtmlWrapper Load(string url)
         {
-            string html = webClient.Load(url);
-            return htmlFactory.Create(new Uri(url), html);
+            string html = _webClient.Load(url);
+            return _htmlFactory.Create(new Uri(url), html);
         }
 
-        public void Dispose()
-        {
-            webClient.Dispose();
-        }
+        public void Dispose() => _webClient.Dispose();
     }
 }

@@ -4,7 +4,7 @@
     {
         string Domain { get; set; }
 
-        string GetCountryCode { get; set; }
+        string CountryCode { get; set; }
 
         string TotalBacklinks { get; set; }
     }

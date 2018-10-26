@@ -4,8 +4,8 @@ namespace MajesticAnalyzer.Domain
 {
     public class University
     {
-        UniversityInfo Info { get; }
-        List<ReffResource> Backlinks { get; }
-        List<ReffResource> Domains { get; }
+        public UniversityInfo Info { get; }
+        public List<ReffResource> Backlinks { get; }
+        public List<ReffResource> Domains { get; }
     }
 }

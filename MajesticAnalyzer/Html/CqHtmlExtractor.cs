@@ -11,11 +11,11 @@ namespace MajesticAnalyzer.Html
             const string nameValue = "description";
             const string contentAttribute = "content";
 
-            CQ cq = CQ.Create(html);
-            string result = string.Empty;
-            foreach (IDomObject obj in cq.Find(tag))
+            var cq = CQ.Create(html);
+            var result = string.Empty;
+            foreach (var obj in cq.Find(tag))
             {
-                string attributeVal = obj.GetAttribute(nameAttribute);
+                var attributeVal = obj.GetAttribute(nameAttribute);
                 if (attributeVal == nameValue)
                 {
                     string content = obj.GetAttribute(contentAttribute);
@@ -35,9 +35,9 @@ namespace MajesticAnalyzer.Html
             const string tagName = "title";
             CQ cq = CQ.Create(html);
 
-            string result = string.Empty;
+            var result = string.Empty;
 
-            foreach (IDomObject obj in cq.Find(tagName))
+            foreach (var obj in cq.Find(tagName))
             {
                 result += obj.InnerText + " ";
             }

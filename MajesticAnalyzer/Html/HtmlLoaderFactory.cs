@@ -4,16 +4,13 @@ namespace MajesticAnalyzer.Html
 {
     public class HtmlLoaderFactory : IHtmlLoaderFactory
     {
-        private readonly Func<IHtmlLoader> factory;
+        private readonly Func<IHtmlLoader> _factory;
 
         public HtmlLoaderFactory(Func<IHtmlLoader> factory)
         {
-            this.factory = factory;
+            _factory = factory;
         }
 
-        public IHtmlLoader Create()
-        {
-            return factory();
-        }
+        public IHtmlLoader Create() => _factory();
     }
 }
