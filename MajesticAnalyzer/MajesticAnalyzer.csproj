@@ -55,7 +55,7 @@
     <Compile Include="ConsoleOutput.cs" />
     <Compile Include="Domain\Backlink.cs" />
     <Compile Include="Domain\DomainInfo.cs" />
-    <Compile Include="Domain\Resource.cs" />
+    <Compile Include="Domain\ReffResource.cs" />
     <Compile Include="Domain\University.cs" />
     <Compile Include="Domain\UniversityInfo.cs" />
     <Compile Include="Html\CqHtmlExtractor.cs" />
