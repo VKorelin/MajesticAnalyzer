@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{731CD726-89A3-4C43-A8BB-87A412AFD133}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MajesticAnalyzer</RootNamespace>
+    <AssemblyName>MajesticAnalyzer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="CsQuery, Version=1.3.3.249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=7.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.7.1.1\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analyzer.cs" />
+    <Compile Include="ConsoleOutput.cs" />
+    <Compile Include="Domain\Backlink.cs" />
+    <Compile Include="Domain\DomainInfo.cs" />
+    <Compile Include="Domain\Resource.cs" />
+    <Compile Include="Domain\University.cs" />
+    <Compile Include="Domain\UniversityInfo.cs" />
+    <Compile Include="Html\CqHtmlExtractor.cs" />
+    <Compile Include="Html\HtmlLoader.cs" />
+    <Compile Include="Html\HtmlLoaderFactory.cs" />
+    <Compile Include="Html\HtmlWrapper.cs" />
+    <Compile Include="Html\HtmlWrapperFactory.cs" />
+    <Compile Include="Html\IHtmlExtractor.cs" />
+    <Compile Include="Html\IHtmlLoader.cs" />
+    <Compile Include="Html\IHtmlWrapper.cs" />
+    <Compile Include="Html\IHtmlWrapperFactory.cs" />
+    <Compile Include="Html\IWebClientWrapper.cs" />
+    <Compile Include="Html\WebClientWrapper.cs" />
+    <Compile Include="IAnalyzer.cs" />
+    <Compile Include="Html\IHtmlLoaderFactory.cs" />
+    <Compile Include="IOutputService.cs" />
+    <Compile Include="Parser\CsvParser.cs" />
+    <Compile Include="Parser\ICsvParser.cs" />
+    <Compile Include="Majestic\IUniversityInfoProvider.cs" />
+    <Compile Include="Majestic\IUniversityLoader.cs" />
+    <Compile Include="Majestic\UniversitiesMap.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
