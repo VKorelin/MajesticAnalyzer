@@ -1,11 +1,15 @@
-﻿namespace MajesticAnalyzer.Domain
+﻿using System;
+
+namespace MajesticAnalyzer.Domain
 {
     public class DomainInfo
     {
-        string Domain { get; set; }
+        public string Domain { get; set; }
 
-        string CountryCode { get; set; }
+        public string CountryCode { get; set; }
 
-        string TotalBacklinks { get; set; }
+        public string TotalBacklinks { get; set; }
+        
+        public Uri MainPage => new Uri(Domain); 
     }
 }

@@ -9,20 +9,20 @@ namespace MajesticAnalyzer.Tests.Html
     [TestFixture]
     public class HtmlWrapperTest
     {
-        private Uri uri;
-        private string html;
-        private IHtmlExtractor htmlExtractor;
+        private Uri _uri;
+        private string _html;
+        private IHtmlExtractor _htmlExtractor;
 
         public void Setup()
         {
-            uri = new Uri("http://www.test.com");
-            html = "test html";
+            _uri = new Uri("http://www.test.com");
+            _html = "test html";
 
         }
 
         private HtmlWrapper CreateInstance(IHtmlExtractor extractor)
         {
-            return new HtmlWrapper(uri, html, extractor);
+            return new HtmlWrapper(_uri, _html, extractor);
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace MajesticAnalyzer.Tests.Html
         {
             var instance = CreateInstance(Mock.Of<IHtmlExtractor>());
 
-            instance.Html.ShouldBe(html);
+            instance.Html.ShouldBe(_html);
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace MajesticAnalyzer.Tests.Html
         {
             var instance = CreateInstance(Mock.Of<IHtmlExtractor>());
 
-            instance.Url.ShouldBe(uri);
+            instance.Url.ShouldBe(_uri);
         }
 
         [Test]

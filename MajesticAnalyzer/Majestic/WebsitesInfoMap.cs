@@ -1,16 +1,13 @@
 ﻿using CsvHelper.Configuration;
 using MajesticAnalyzer.Domain;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MajesticAnalyzer.Majestic
 {
-    public class UniversitiesMap : ClassMap<UniversityInfo>
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class WebsitesInfoMap : ClassMap<UniversityInfo>
     {
-        public UniversitiesMap()
+        public WebsitesInfoMap()
         {
             Map(m => m.Name).Name("Title");
             Map(m => m.Rank).Name("Ranking");

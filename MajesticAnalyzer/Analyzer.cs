@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MajesticAnalyzer.Domain;
+﻿using System.Collections.Generic;
 using MajesticAnalyzer.Html;
 using MajesticAnalyzer.Majestic;
 
@@ -11,38 +6,42 @@ namespace MajesticAnalyzer
 {
     public class Analyzer : IAnalyzer
     {
-        private readonly IHtmlLoaderFactory htmlLoaderFactory;
-        private readonly IOutputService outputService;
-        private readonly IUniversityInfoProvider universityInfoProvider;
-        private readonly IUniversityLoader universityLoader;
+        private readonly IHtmlLoaderFactory _htmlLoaderFactory;
+        private readonly IWebsitesInfoLoader _websitesInfoLoader;
+        private readonly IBacklinksLoader _backlinksLoader;
+        private readonly IRefdomainsLoader _refdomainsLoader;
+        private readonly IPathProvider _pathProvider;
 
         public Analyzer(
             IHtmlLoaderFactory htmlLoaderFactory,
-            IOutputService outputService,
-            IUniversityInfoProvider universityInfoProvider,
-            IUniversityLoader universityLoader)
+            IWebsitesInfoLoader websitesInfoLoader,
+            IBacklinksLoader backlinksLoader, 
+            IRefdomainsLoader refdomainsLoader,
+            IPathProvider pathProvider)
         {
-            this.htmlLoaderFactory = htmlLoaderFactory;
-            this.outputService = outputService;
-            this.universityInfoProvider = universityInfoProvider;
-            this.universityLoader = universityLoader;
+            _htmlLoaderFactory = htmlLoaderFactory;
+            _websitesInfoLoader = websitesInfoLoader;
+            _backlinksLoader = backlinksLoader;
+            _refdomainsLoader = refdomainsLoader;
+            _pathProvider = pathProvider;
         }
 
         public void Start()
         {
-            var universities = universityInfoProvider.GetUniversities();
+            var universities = _websitesInfoLoader.Load();
+            var reffDataFolders = new HashSet<string>(_pathProvider.ChildDirectories);
 
             foreach(var universityInfo in universities)
             {
-                using (IHtmlLoader htmlLoader = htmlLoaderFactory.Create())
+                if (!reffDataFolders.Contains(universityInfo.Uri.Host))
                 {
-                    University university = universityLoader.LoadUniversity(universityInfo);
-
-                    foreach (var link in university.Domains)
-                    {
-                        IHtmlWrapper htmlWrapper = htmlLoader.Load(link.Uri.AbsoluteUri);
-
-                    }
+                    continue;
+                }
+                
+                using (var htmlLoader = _htmlLoaderFactory.Create())
+                {
+                    var backlinks = _backlinksLoader.Load(universityInfo);
+                    var refdomains = _refdomainsLoader.Load(universityInfo);
                 }
             }
         }

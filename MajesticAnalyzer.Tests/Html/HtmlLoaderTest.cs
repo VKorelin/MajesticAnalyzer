@@ -11,20 +11,20 @@ namespace MajesticAnalyzer.Tests.Html
     {
         private const string Uri = "http://www.test.com";
 
-        private Mock<IHtmlWrapperFactory> htmlWrapperFactoryMock;
+        private Mock<IHtmlWrapperFactory> _htmlWrapperFactoryMock;
 
-        private Mock<IWebClientWrapper> webClientWrapperMock;
+        private Mock<IWebClientWrapper> _webClientWrapperMock;
 
         [SetUp]
         public void Setup()
         {
-            htmlWrapperFactoryMock = new Mock<IHtmlWrapperFactory>();
-            webClientWrapperMock = new Mock<IWebClientWrapper>();
+            _htmlWrapperFactoryMock = new Mock<IHtmlWrapperFactory>();
+            _webClientWrapperMock = new Mock<IWebClientWrapper>();
         }
 
         private HtmlLoader CreateInstance()
         {
-            return new HtmlLoader(htmlWrapperFactoryMock.Object, webClientWrapperMock.Object);
+            return new HtmlLoader(_htmlWrapperFactoryMock.Object, _webClientWrapperMock.Object);
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace MajesticAnalyzer.Tests.Html
 
             htmlLoader.Load(Uri);
 
-            webClientWrapperMock.Verify(x => x.Load(Uri), Times.Once);
+            _webClientWrapperMock.Verify(x => x.Load(Uri), Times.Once);
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace MajesticAnalyzer.Tests.Html
 
             htmlLoader.Load(Uri);
 
-            htmlWrapperFactoryMock.Verify(
+            _htmlWrapperFactoryMock.Verify(
                 x => x.Create(new Uri(Uri), It.IsAny<string>()), Times.Once);
         }
 
@@ -53,7 +53,7 @@ namespace MajesticAnalyzer.Tests.Html
         {
             var expectedWrapper = new HtmlWrapper(new Uri(Uri), "test html", Mock.Of<IHtmlExtractor>());
 
-            htmlWrapperFactoryMock
+            _htmlWrapperFactoryMock
                 .Setup(x => x.Create(It.IsAny<Uri>(), It.IsAny<string>()))
                 .Returns(expectedWrapper);
 

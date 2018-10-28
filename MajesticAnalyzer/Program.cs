@@ -1,39 +1,40 @@
 ﻿using Autofac;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MajesticAnalyzer.Html;
-using CsvHelper.Configuration;
-using System.IO;
-using CsvHelper;
-using MajesticAnalyzer.Domain;
-using CsvHelper.TypeConversion;
-using System.Net;
+using MajesticAnalyzer.Majestic;
+using MajesticAnalyzer.Parser;
 
 namespace MajesticAnalyzer
 {
     class Program
     {
-        private static IContainer _container;
-
+        // ReSharper disable once UnusedParameter.Local
         static void Main(string[] args)
         {
-            RegisterComponents();
-
-            _container.Resolve<IAnalyzer>().Start();
-
-            _container?.Dispose();
+            using (var container = RegisterComponents())
+            {
+                container.Resolve<IAnalyzer>().Start();
+                container?.Dispose();
+            }
+            
             Console.ReadKey();
         }
 
-        static void RegisterComponents()
+        static IContainer RegisterComponents()
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<Analyzer>().AsImplementedInterfaces();
-            builder.RegisterType<ConsoleOutput>().AsImplementedInterfaces();
+            builder.RegisterType<Analyzer>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<ConsoleOutput>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<PathProvider>().AsImplementedInterfaces().SingleInstance();
+            
+            //Majestic
+            builder.RegisterType<WebsitesInfoLoader>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<BacklinksLoader>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<RefdomainsLoader>().AsImplementedInterfaces().SingleInstance();
+            
+            //Parser
+            builder.RegisterGeneric(typeof(CsvParser<,>)).AsImplementedInterfaces().SingleInstance();
 
             //HtmlLoader
             builder.RegisterType<HtmlLoader>().AsImplementedInterfaces();
@@ -43,7 +44,7 @@ namespace MajesticAnalyzer
             builder.RegisterType<HtmlLoaderFactory>().AsImplementedInterfaces();
             builder.RegisterType<WebClientWrapper>().AsImplementedInterfaces();
 
-            _container = builder.Build();
+            return builder.Build();
         }
     }
 }

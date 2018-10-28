@@ -5,6 +5,6 @@ namespace MajesticAnalyzer.Parser
 {
     public interface ICsvParser<TDomain, TMap> where TMap : ClassMap<TDomain>
     {
-        IList<TDomain> Parse();
+        List<TDomain> Parse(string fileName);
     }
 }

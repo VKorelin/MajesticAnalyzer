@@ -1,5 +1,4 @@
 ﻿using MajesticAnalyzer.Domain;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MajesticAnalyzer.Majestic
 {
-    public interface IUniversityInfoProvider
+    public interface IWebsitesInfoLoader
     {
-        List<UniversityInfo> GetUniversities();
+        List<UniversityInfo> Load();
     }
 }

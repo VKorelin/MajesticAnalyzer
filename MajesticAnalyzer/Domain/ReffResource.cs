@@ -5,7 +5,7 @@ namespace MajesticAnalyzer.Domain
 {
     public class ReffResource
     {
-        public DomainInfo MainPage { get; }
+        public DomainInfo Domain { get; }
 
         public List<Backlink> Pages { get; }
 
