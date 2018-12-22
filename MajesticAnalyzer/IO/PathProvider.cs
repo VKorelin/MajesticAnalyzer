@@ -6,8 +6,15 @@ namespace MajesticAnalyzer.IO
 {
     public class PathProvider : IPathProvider
     {
-        public string HomeDirectory => @"D:\Webometrics\";
+        private readonly IConfigurationProvider _configurationProvider;
+        
+        public string HomeDirectory => _configurationProvider.GetHomeDirectory();
         
         public IEnumerable<string> ChildDirectories => Directory.GetDirectories(HomeDirectory).Select(Path.GetFileName);
+
+        public PathProvider(IConfigurationProvider configurationProvider)
+        {
+            _configurationProvider = configurationProvider;
+        }
     }
 }

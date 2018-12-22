@@ -26,13 +26,16 @@ namespace MajesticAnalyzer
             var builder = new ContainerBuilder();
 
             builder.RegisterType<Analyzer>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<ConsoleOutput>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<PathProvider>().AsImplementedInterfaces().SingleInstance();
             
             //Majestic
             builder.RegisterType<WebsitesInfoLoader>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<BacklinksLoader>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<RefdomainsLoader>().AsImplementedInterfaces().SingleInstance();
+            
+            //IO
+            builder.RegisterType<ConfigurationProvider>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<ConsoleOutput>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<PathProvider>().AsImplementedInterfaces().SingleInstance();
             
             //Parser
             builder.RegisterGeneric(typeof(CsvParser<,>)).AsImplementedInterfaces().SingleInstance();

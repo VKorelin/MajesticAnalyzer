@@ -42,6 +42,7 @@
       <HintPath>..\packages\CsvHelper.7.1.1\lib\net45\CsvHelper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,7 +71,9 @@
     <Compile Include="Html\WebClientWrapper.cs" />
     <Compile Include="IAnalyzer.cs" />
     <Compile Include="Html\IHtmlLoaderFactory.cs" />
+    <Compile Include="IO\ConfigurationProvider.cs" />
     <Compile Include="IO\ConsoleOutput.cs" />
+    <Compile Include="IO\IConfigurationProvider.cs" />
     <Compile Include="IO\IOutputService.cs" />
     <Compile Include="IO\IPathProvider.cs" />
     <Compile Include="IO\PathProvider.cs" />
