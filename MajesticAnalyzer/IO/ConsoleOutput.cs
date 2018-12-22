@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MajesticAnalyzer
+namespace MajesticAnalyzer.IO
 {
     public class ConsoleOutput : IOutputService
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using MajesticAnalyzer.Domain;
+using MajesticAnalyzer.IO;
 using MajesticAnalyzer.Parser;
 
 namespace MajesticAnalyzer.Majestic

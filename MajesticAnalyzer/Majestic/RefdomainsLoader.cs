@@ -1,22 +1,21 @@
-using System.Collections.Generic;
 using System.IO;
 using MajesticAnalyzer.Domain;
+using MajesticAnalyzer.IO;
 using MajesticAnalyzer.Parser;
 
 namespace MajesticAnalyzer.Majestic
 {
-    public class RefdomainsLoader : IRefdomainsLoader
+    public class RefdomainsLoader : DataLoader<DomainInfo, RefdomainsMap>, IRefdomainsLoader
     {
-        private readonly ICsvParser<DomainInfo, RefdomainsMap> _csvParser;
         private readonly IPathProvider _pathProvider;
         
         public RefdomainsLoader(ICsvParser<DomainInfo, RefdomainsMap> csvParser, IPathProvider pathProvider)
+            : base(csvParser)
         {
-            _csvParser = csvParser;
             _pathProvider = pathProvider;
         }
-        
-        public List<DomainInfo> Load(UniversityInfo universityInfo) 
-            => _csvParser.Parse(Path.Combine(_pathProvider.HomeDirectory, universityInfo.Uri.Host, "refdomains.csv"));
+
+        protected override string GetPath(string universityHost) 
+            => Path.Combine(_pathProvider.HomeDirectory, universityHost, "refdomains.csv");
     }
 }

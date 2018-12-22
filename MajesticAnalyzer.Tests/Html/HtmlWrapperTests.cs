@@ -7,12 +7,12 @@ using System;
 namespace MajesticAnalyzer.Tests.Html
 {
     [TestFixture]
-    public class HtmlWrapperTest
+    public class HtmlWrapperTests
     {
         private Uri _uri;
         private string _html;
-        private IHtmlExtractor _htmlExtractor;
 
+        [SetUp]
         public void Setup()
         {
             _uri = new Uri("http://www.test.com");
@@ -20,10 +20,7 @@ namespace MajesticAnalyzer.Tests.Html
 
         }
 
-        private HtmlWrapper CreateInstance(IHtmlExtractor extractor)
-        {
-            return new HtmlWrapper(_uri, _html, extractor);
-        }
+        private HtmlWrapper CreateInstance(IHtmlExtractor extractor) => new HtmlWrapper(_uri, _html, extractor);
 
         [Test]
         public void ExposesHtml()

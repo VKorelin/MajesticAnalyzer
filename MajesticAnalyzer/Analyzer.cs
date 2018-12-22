@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MajesticAnalyzer.Html;
+using MajesticAnalyzer.IO;
 using MajesticAnalyzer.Majestic;
 
 namespace MajesticAnalyzer

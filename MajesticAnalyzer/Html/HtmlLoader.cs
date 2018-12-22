@@ -15,7 +15,7 @@ namespace MajesticAnalyzer.Html
 
         public IHtmlWrapper Load(string url)
         {
-            string html = _webClient.Load(url);
+            var html = _webClient.Load(url);
             return _htmlFactory.Create(new Uri(url), html);
         }
 

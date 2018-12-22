@@ -7,12 +7,9 @@ using System;
 namespace MajesticAnalyzer.Tests.Html
 {
     [TestFixture]
-    public class HtmlLoaderFactoryTest
+    public class HtmlLoaderFactoryTests
     {
-        private HtmlLoaderFactory CreateInstance(Func<IHtmlLoader> factory)
-        {
-            return new HtmlLoaderFactory(factory);
-        }
+        private static HtmlLoaderFactory CreateInstance(Func<IHtmlLoader> factory) => new HtmlLoaderFactory(factory);
 
         [Test]
         public void CreatesHtmlLoader()

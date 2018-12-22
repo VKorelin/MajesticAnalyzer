@@ -74,11 +74,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Html\HtmlLoaderTest.cs" />
-    <Compile Include="Html\HtmlWrapperTest.cs" />
-    <Compile Include="Html\HtmlWrapperFactoryTest.cs" />
-    <Compile Include="Html\HtmlLoaderFactoryTest.cs" />
-    <Compile Include="Majestic\WebsitesInfoParserTest.cs" />
+    <Compile Include="Html\HtmlLoaderTests.cs" />
+    <Compile Include="Html\HtmlWrapperTests.cs" />
+    <Compile Include="Html\HtmlWrapperFactoryTests.cs" />
+    <Compile Include="Html\HtmlLoaderFactoryTests.cs" />
+    <Compile Include="Majestic\BacklinksLoaderTests.cs" />
+    <Compile Include="Majestic\RefdomainsLoaderTests.cs" />
+    <Compile Include="Majestic\WebsitesInfoLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

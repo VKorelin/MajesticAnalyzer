@@ -7,18 +7,14 @@ using System;
 namespace MajesticAnalyzer.Tests.Html
 {
     [TestFixture]
-    public class HtmlWrapperFactoryTest
+    public class HtmlWrapperFactoryTests
     {
-        private HtmlWrapperFactory CreateInstance(Func<Uri, string, IHtmlWrapper> factory)
-        {
-            return new HtmlWrapperFactory(factory);
-        }
+        private static HtmlWrapperFactory CreateInstance(Func<Uri, string, IHtmlWrapper> factory) => new HtmlWrapperFactory(factory);
 
         [Test]
         public void CreatesHtmlWrapper()
         {
             var wrapper = Mock.Of<IHtmlWrapper>();
-
             var wrapperFactory = CreateInstance((url, html) => wrapper);
 
             var htmlWrapper = wrapperFactory.Create(new Uri("http://www.yandex.ru"), "html");

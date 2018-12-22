@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using System;
 using MajesticAnalyzer.Html;
+using MajesticAnalyzer.IO;
 using MajesticAnalyzer.Majestic;
 using MajesticAnalyzer.Parser;
 

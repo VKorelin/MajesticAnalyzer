@@ -1,4 +1,4 @@
-﻿namespace MajesticAnalyzer
+﻿namespace MajesticAnalyzer.IO
 {
     public interface IOutputService
     {

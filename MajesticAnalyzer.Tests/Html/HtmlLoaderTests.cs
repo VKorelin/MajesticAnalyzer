@@ -7,7 +7,7 @@ using System;
 namespace MajesticAnalyzer.Tests.Html
 {
     [TestFixture]
-    public class HtmlLoaderTest
+    public class HtmlLoaderTests
     {
         private const string Uri = "http://www.test.com";
 
@@ -22,10 +22,7 @@ namespace MajesticAnalyzer.Tests.Html
             _webClientWrapperMock = new Mock<IWebClientWrapper>();
         }
 
-        private HtmlLoader CreateInstance()
-        {
-            return new HtmlLoader(_htmlWrapperFactoryMock.Object, _webClientWrapperMock.Object);
-        }
+        private HtmlLoader CreateInstance() => new HtmlLoader(_htmlWrapperFactoryMock.Object, _webClientWrapperMock.Object);
 
         [Test]
         public void LoadsHtmlViaWebClientWrapperOnce()

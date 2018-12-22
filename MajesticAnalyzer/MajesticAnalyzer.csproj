@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analyzer.cs" />
-    <Compile Include="ConsoleOutput.cs" />
     <Compile Include="Domain\Backlink.cs" />
     <Compile Include="Domain\DomainInfo.cs" />
     <Compile Include="Domain\ReffResource.cs" />
@@ -71,10 +70,13 @@
     <Compile Include="Html\WebClientWrapper.cs" />
     <Compile Include="IAnalyzer.cs" />
     <Compile Include="Html\IHtmlLoaderFactory.cs" />
-    <Compile Include="IOutputService.cs" />
-    <Compile Include="IPathProvider.cs" />
+    <Compile Include="IO\ConsoleOutput.cs" />
+    <Compile Include="IO\IOutputService.cs" />
+    <Compile Include="IO\IPathProvider.cs" />
+    <Compile Include="IO\PathProvider.cs" />
     <Compile Include="Majestic\BacklinksMap.cs" />
     <Compile Include="Majestic\BacklinksLoader.cs" />
+    <Compile Include="Majestic\DataLoader.cs" />
     <Compile Include="Majestic\IBacklinksLoader.cs" />
     <Compile Include="Majestic\IRefdomainsLoader.cs" />
     <Compile Include="Majestic\IUniversityInfoDataLoader.cs" />
@@ -85,7 +87,6 @@
     <Compile Include="Parser\ICsvParser.cs" />
     <Compile Include="Majestic\IWebsitesInfoLoader.cs" />
     <Compile Include="Majestic\WebsitesInfoMap.cs" />
-    <Compile Include="PathProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +94,5 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,7 +33,7 @@ namespace MajesticAnalyzer.Html
         public string ExtractTitle(string html)
         {
             const string tagName = "title";
-            CQ cq = CQ.Create(html);
+            var cq = CQ.Create(html);
 
             var result = string.Empty;
 
