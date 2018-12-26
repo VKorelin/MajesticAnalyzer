@@ -7,48 +7,18 @@ using MajesticAnalyzer.Parser;
 
 namespace MajesticAnalyzer
 {
-    class Program
+    public class Program
     {
         // ReSharper disable once UnusedParameter.Local
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            using (var container = RegisterComponents())
+            using (var bootstrapper = new Bootstrapper())
             {
-                container.Resolve<IAnalyzer>().Start();
-                container?.Dispose();
+                bootstrapper.Run();
+                bootstrapper.LoadUniversities();
             }
             
             Console.ReadKey();
-        }
-
-        static IContainer RegisterComponents()
-        {
-            var builder = new ContainerBuilder();
-
-            builder.RegisterType<Analyzer>().AsImplementedInterfaces().SingleInstance();
-            
-            //Majestic
-            builder.RegisterType<WebsitesInfoLoader>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<BacklinksLoader>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<RefdomainsLoader>().AsImplementedInterfaces().SingleInstance();
-            
-            //IO
-            builder.RegisterType<ConfigurationProvider>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<ConsoleOutput>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<PathProvider>().AsImplementedInterfaces().SingleInstance();
-            
-            //Parser
-            builder.RegisterGeneric(typeof(CsvParser<,>)).AsImplementedInterfaces().SingleInstance();
-
-            //HtmlLoader
-            builder.RegisterType<HtmlLoader>().AsImplementedInterfaces();
-            builder.RegisterType<CqHtmlExtractor>().AsImplementedInterfaces();
-            builder.RegisterType<HtmlWrapper>().AsImplementedInterfaces();
-            builder.RegisterType<HtmlWrapperFactory>().AsImplementedInterfaces();
-            builder.RegisterType<HtmlLoaderFactory>().AsImplementedInterfaces();
-            builder.RegisterType<WebClientWrapper>().AsImplementedInterfaces();
-
-            return builder.Build();
         }
     }
 }

@@ -21,5 +21,7 @@ namespace MajesticAnalyzer.Domain
         public string Country { get; set; }
 
         public string Region { get; set; }
+
+        public override string ToString() => Uri.ToString();
     }
 }

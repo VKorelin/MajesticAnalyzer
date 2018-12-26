@@ -83,6 +83,7 @@
     <Compile Include="Majestic\RefdomainsLoaderTests.cs" />
     <Compile Include="Majestic\WebsitesInfoLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UniversitiesLoaderServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

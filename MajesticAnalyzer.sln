@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MajesticAnalyzer", "Majesti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MajesticAnalyzer.Tests", "MajesticAnalyzer.Tests\MajesticAnalyzer.Tests.csproj", "{427AD4A2-604C-4E41-AA44-8CA14AF07322}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MajesticAnalyzer.IntegrationTests", "MajesticAnalyzer.IntegrationTests\MajesticAnalyzer.IntegrationTests.csproj", "{5CD86B5B-4739-4AF0-BB34-7857FA71AB28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{427AD4A2-604C-4E41-AA44-8CA14AF07322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{427AD4A2-604C-4E41-AA44-8CA14AF07322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{427AD4A2-604C-4E41-AA44-8CA14AF07322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CD86B5B-4739-4AF0-BB34-7857FA71AB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD86B5B-4739-4AF0-BB34-7857FA71AB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD86B5B-4739-4AF0-BB34-7857FA71AB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD86B5B-4739-4AF0-BB34-7857FA71AB28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -52,7 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analyzer.cs" />
+    <Compile Include="UniversitiesLoaderService.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Domain\Backlink.cs" />
     <Compile Include="Domain\DomainInfo.cs" />
     <Compile Include="Domain\ReffResource.cs" />
@@ -69,7 +70,7 @@
     <Compile Include="Html\IHtmlWrapperFactory.cs" />
     <Compile Include="Html\IWebClientWrapper.cs" />
     <Compile Include="Html\WebClientWrapper.cs" />
-    <Compile Include="IAnalyzer.cs" />
+    <Compile Include="IUniversitiesLoaderService.cs" />
     <Compile Include="Html\IHtmlLoaderFactory.cs" />
     <Compile Include="IO\ConfigurationProvider.cs" />
     <Compile Include="IO\ConsoleOutput.cs" />

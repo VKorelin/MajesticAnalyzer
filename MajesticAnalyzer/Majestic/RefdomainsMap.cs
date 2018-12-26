@@ -7,7 +7,7 @@ namespace MajesticAnalyzer.Majestic
     {
         public RefdomainsMap()
         {
-            Map(x => x.Domain).Name("Domain");
+            Map(x => x.Host).Name("Domain");
             Map(x => x.CountryCode).Name("GeoCountryCode");
             Map(x => x.TotalBacklinks).Name("TotalBackLinks");
         }
