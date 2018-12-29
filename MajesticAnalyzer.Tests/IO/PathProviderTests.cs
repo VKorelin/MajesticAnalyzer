@@ -1,3 +1,4 @@
+using System;
 using MajesticAnalyzer.Domain;
 using MajesticAnalyzer.IO;
 using Moq;
@@ -35,9 +36,9 @@ namespace MajesticAnalyzer.Tests.IO
             _configurationProviderMock.Setup(x => x.GetHomeDirectory()).Returns("test");
             var instance = CreateInstance();
 
-            var outputPath = instance.GetContentOutputPath(new DomainInfo {Host = "host"});
+            var outputPath = instance.GetContentOutputPath(new UniversityInfo {Uri = new Uri("http://www.host.ru")});
             
-            outputPath.ShouldBe("test\\host\\content.csv");
+            outputPath.ShouldBe("test\\www.host.ru\\content.csv");
         }
     }
 }

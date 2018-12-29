@@ -9,6 +9,6 @@ namespace MajesticAnalyzer.IO
         
         IEnumerable<string> ChildDirectories { get; }
 
-        string GetContentOutputPath(DomainInfo domainInfo);
+        string GetContentOutputPath(UniversityInfo universityInfo);
     }
 }

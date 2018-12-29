@@ -18,6 +18,6 @@ namespace MajesticAnalyzer.IO
             _configurationProvider = configurationProvider;
         }
 
-        public string GetContentOutputPath(DomainInfo domainInfo) => Path.Combine(HomeDirectory, domainInfo.Host, "content.csv");
+        public string GetContentOutputPath(UniversityInfo universityInfo) => Path.Combine(HomeDirectory, universityInfo.Uri.Host, "content.csv");
     }
 }
