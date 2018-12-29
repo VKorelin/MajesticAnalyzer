@@ -1,10 +1,10 @@
-﻿using CsvHelper;
-using CsvHelper.Configuration;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using CsvHelper;
+using CsvHelper.Configuration;
 
-namespace MajesticAnalyzer.Parser
+namespace MajesticAnalyzer.IO.Csv
 {
     public class CsvParser<TDomain, TMap> : ICsvParser<TDomain, TMap> where TMap : ClassMap<TDomain>
     {

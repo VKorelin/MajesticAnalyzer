@@ -1,7 +1,7 @@
-﻿using CsvHelper.Configuration;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using CsvHelper.Configuration;
 
-namespace MajesticAnalyzer.Parser
+namespace MajesticAnalyzer.IO.Csv
 {
     public interface ICsvParser<TDomain, TMap> where TMap : ClassMap<TDomain>
     {

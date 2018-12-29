@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using MajesticAnalyzer.Domain;
 using MajesticAnalyzer.IO;
+using MajesticAnalyzer.IO.Csv;
 using MajesticAnalyzer.Majestic;
-using MajesticAnalyzer.Parser;
 using Moq;
 using NUnit.Framework;
 using Shouldly;

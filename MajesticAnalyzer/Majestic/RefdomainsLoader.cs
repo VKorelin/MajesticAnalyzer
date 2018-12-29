@@ -1,7 +1,7 @@
 using System.IO;
 using MajesticAnalyzer.Domain;
 using MajesticAnalyzer.IO;
-using MajesticAnalyzer.Parser;
+using MajesticAnalyzer.IO.Csv;
 
 namespace MajesticAnalyzer.Majestic
 {

@@ -1,7 +1,7 @@
 using CsvHelper.Configuration;
 using MajesticAnalyzer.Domain;
 
-namespace MajesticAnalyzer.Majestic
+namespace MajesticAnalyzer.IO.Csv
 {
     public class BacklinksMap : ClassMap<Backlink>
     {

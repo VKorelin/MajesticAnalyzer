@@ -1,8 +1,8 @@
-﻿using CsvHelper.Configuration;
+﻿using System;
+using CsvHelper.Configuration;
 using MajesticAnalyzer.Domain;
-using System;
 
-namespace MajesticAnalyzer.Majestic
+namespace MajesticAnalyzer.IO.Csv
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class WebsitesInfoMap : ClassMap<UniversityInfo>

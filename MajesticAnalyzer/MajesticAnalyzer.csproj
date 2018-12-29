@@ -52,6 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO\Csv\BacklinksMap.cs" />
+    <Compile Include="IO\Csv\CsvParser.cs" />
+    <Compile Include="IO\Csv\CsvWriter.cs" />
+    <Compile Include="IO\Csv\ICsvParser.cs" />
+    <Compile Include="IO\Csv\ICsvWriter.cs" />
+    <Compile Include="IO\Csv\RefdomainsMap.cs" />
+    <Compile Include="IO\Csv\ReffResourceMap.cs" />
+    <Compile Include="IO\Csv\WebsitesInfoMap.cs" />
+    <Compile Include="IO\IReffContentOutputService.cs" />
+    <Compile Include="IO\ReffContentOutputService.cs" />
     <Compile Include="UniversitiesLoaderService.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Domain\Backlink.cs" />
@@ -76,19 +86,14 @@
     <Compile Include="IO\IConfigurationProvider.cs" />
     <Compile Include="IO\IPathProvider.cs" />
     <Compile Include="IO\PathProvider.cs" />
-    <Compile Include="Majestic\BacklinksMap.cs" />
     <Compile Include="Majestic\BacklinksLoader.cs" />
     <Compile Include="Majestic\DataLoader.cs" />
     <Compile Include="Majestic\IBacklinksLoader.cs" />
     <Compile Include="Majestic\IRefdomainsLoader.cs" />
     <Compile Include="Majestic\IUniversityInfoDataLoader.cs" />
     <Compile Include="Majestic\RefdomainsLoader.cs" />
-    <Compile Include="Majestic\RefdomainsMap.cs" />
     <Compile Include="Majestic\WebsitesInfoLoader.cs" />
-    <Compile Include="Parser\CsvParser.cs" />
-    <Compile Include="Parser\ICsvParser.cs" />
     <Compile Include="Majestic\IWebsitesInfoLoader.cs" />
-    <Compile Include="Majestic\WebsitesInfoMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

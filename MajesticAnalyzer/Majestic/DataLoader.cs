@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using CsvHelper.Configuration;
 using MajesticAnalyzer.Domain;
-using MajesticAnalyzer.Parser;
+using MajesticAnalyzer.IO.Csv;
 
 namespace MajesticAnalyzer.Majestic
 {
