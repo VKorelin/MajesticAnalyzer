@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using MajesticAnalyzer.Domain;
 
 namespace MajesticAnalyzer.IO
 {
@@ -16,5 +17,7 @@ namespace MajesticAnalyzer.IO
         {
             _configurationProvider = configurationProvider;
         }
+
+        public string GetContentOutputPath(DomainInfo domainInfo) => Path.Combine(HomeDirectory, domainInfo.Host, "content.csv");
     }
 }

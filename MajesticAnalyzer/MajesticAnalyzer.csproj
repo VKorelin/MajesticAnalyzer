@@ -73,9 +73,7 @@
     <Compile Include="IUniversitiesLoaderService.cs" />
     <Compile Include="Html\IHtmlLoaderFactory.cs" />
     <Compile Include="IO\ConfigurationProvider.cs" />
-    <Compile Include="IO\ConsoleOutput.cs" />
     <Compile Include="IO\IConfigurationProvider.cs" />
-    <Compile Include="IO\IOutputService.cs" />
     <Compile Include="IO\IPathProvider.cs" />
     <Compile Include="IO\PathProvider.cs" />
     <Compile Include="Majestic\BacklinksMap.cs" />

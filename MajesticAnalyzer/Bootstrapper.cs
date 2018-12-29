@@ -34,7 +34,6 @@ namespace MajesticAnalyzer
             
             //IO
             builder.RegisterType<ConfigurationProvider>().AsImplementedInterfaces().SingleInstance();
-            builder.RegisterType<ConsoleOutput>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<PathProvider>().AsImplementedInterfaces().SingleInstance();
             
             //Parser

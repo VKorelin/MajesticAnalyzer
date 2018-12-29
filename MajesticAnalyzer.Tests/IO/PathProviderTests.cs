@@ -1,3 +1,4 @@
+using MajesticAnalyzer.Domain;
 using MajesticAnalyzer.IO;
 using Moq;
 using NUnit.Framework;
@@ -26,6 +27,17 @@ namespace MajesticAnalyzer.Tests.IO
             var homeDir = instance.HomeDirectory;
             
             homeDir.ShouldBe("test");
+        }
+
+        [Test]
+        public void GetsContentOutputPath()
+        {
+            _configurationProviderMock.Setup(x => x.GetHomeDirectory()).Returns("test");
+            var instance = CreateInstance();
+
+            var outputPath = instance.GetContentOutputPath(new DomainInfo {Host = "host"});
+            
+            outputPath.ShouldBe("test\\host\\content.csv");
         }
     }
 }

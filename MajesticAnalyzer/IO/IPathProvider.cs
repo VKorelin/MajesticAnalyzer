@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MajesticAnalyzer.Domain;
 
 namespace MajesticAnalyzer.IO
 {
@@ -7,5 +8,7 @@ namespace MajesticAnalyzer.IO
         string HomeDirectory { get; }
         
         IEnumerable<string> ChildDirectories { get; }
+
+        string GetContentOutputPath(DomainInfo domainInfo);
     }
 }
