@@ -4,6 +4,8 @@
     {
         // ReSharper disable once MemberCanBePrivate.Global
         public string Url { get; set; }
+        
+        public Backlink() { }
 
         public Backlink(string url)
         {
