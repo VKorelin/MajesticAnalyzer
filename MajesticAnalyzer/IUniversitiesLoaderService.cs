@@ -3,8 +3,10 @@ using MajesticAnalyzer.Domain;
 
 namespace MajesticAnalyzer
 {
-    interface IUniversitiesLoaderService
+    public interface IUniversitiesLoaderService
     {
+        University LoadUniversity(string universityHost);
+        
         List<University> LoadUniversities();
     }
 }

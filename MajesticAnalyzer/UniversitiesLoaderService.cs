@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using MajesticAnalyzer.Domain;
@@ -11,68 +10,40 @@ namespace MajesticAnalyzer
     public class UniversitiesLoaderService : IUniversitiesLoaderService
     {
         private readonly IWebsitesInfoLoader _websitesInfoLoader;
-        private readonly IBacklinksLoader _backlinksLoader;
-        private readonly IRefdomainsLoader _refdomainsLoader;
         private readonly IPathProvider _pathProvider;
+        private readonly IUniversityLoaderService _universitiesLoaderService;
 
         public UniversitiesLoaderService(
             IWebsitesInfoLoader websitesInfoLoader,
-            IBacklinksLoader backlinksLoader, 
-            IRefdomainsLoader refdomainsLoader,
-            IPathProvider pathProvider)
+            IPathProvider pathProvider,
+            IUniversityLoaderService universitiesLoaderService)
         {
             _websitesInfoLoader = websitesInfoLoader;
-            _backlinksLoader = backlinksLoader;
-            _refdomainsLoader = refdomainsLoader; 
             _pathProvider = pathProvider;
+            _universitiesLoaderService = universitiesLoaderService;
+        }
+
+        public University LoadUniversity(string universityHost)
+        {
+            var universitiesFolders = new HashSet<string>(_pathProvider.ChildDirectories);
+            if (!universitiesFolders.Contains(universityHost))
+            {
+                throw new DirectoryNotFoundException($"Cannot find {universityHost} university folder");
+            }
+            
+            var universityInfo = _websitesInfoLoader.Load().FirstOrDefault(x => string.Equals(x.Uri.Host, universityHost));
+            return _universitiesLoaderService.Load(universityInfo);
         }
 
         public List<University> LoadUniversities()
         {
             var universityInfos = _websitesInfoLoader.Load();
-            var reffDataFolders = new HashSet<string>(_pathProvider.ChildDirectories);
+            var universitiesFolders = new HashSet<string>(_pathProvider.ChildDirectories);
 
             return universityInfos
-                .Where(x => reffDataFolders.Contains(x.Uri.Host))
-                .Select(LoadUniversity)
+                .Where(x => universitiesFolders.Contains(x.Uri.Host))
+                .Select(_universitiesLoaderService.Load)
                 .ToList();
-        }
-
-        private University LoadUniversity(UniversityInfo universityInfo)
-        {
-            var reffDomains = _refdomainsLoader.Load(universityInfo);
-            if (!reffDomains.Any())
-            {
-                throw new InvalidDataException($"No reff domains for {universityInfo} university found");
-            }
-            
-            var backlinks = _backlinksLoader.Load(universityInfo);
-
-            var reffResources = new List<ReffResource>();
-            reffDomains.ForEach(x => reffResources.Add(
-                new ReffResource
-                {
-                    Domain = x,
-                    UniversityInfo = universityInfo
-                }));
-                
-            var reffResourcesMap = reffResources.ToDictionary(x => x.Domain.Host);
-
-            foreach (var backlink in backlinks)
-            {
-                var backlinkUri = new Uri(backlink.Url);
-
-                if (reffResourcesMap.TryGetValue(backlinkUri.Host, out var resource))
-                {
-                    resource.Backlinks.Add(backlink.Url);
-                }
-            }
-
-            return new University
-            {
-                Info = universityInfo,
-                ReffResources = reffResources
-            };
         }
     }
 }

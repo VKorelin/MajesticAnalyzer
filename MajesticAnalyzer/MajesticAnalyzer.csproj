@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="IO\Csv\BacklinksMap.cs" />
     <Compile Include="IO\Csv\CsvHandler.cs" />
     <Compile Include="IO\Csv\ICsvParser.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="IO\Csv\WebsitesInfoMap.cs" />
     <Compile Include="IO\IReffContentOutputService.cs" />
     <Compile Include="IO\ReffContentOutputService.cs" />
+    <Compile Include="IUniversityLoaderService.cs" />
     <Compile Include="UniversitiesLoaderService.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Domain\Backlink.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Majestic\IWebsitesInfoLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UniversityLoaderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

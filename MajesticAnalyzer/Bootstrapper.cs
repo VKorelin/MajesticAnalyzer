@@ -21,10 +21,13 @@ namespace MajesticAnalyzer
         {
             var universities = _container.Resolve<IUniversitiesLoaderService>().LoadUniversities();
 
-            var reffResource = universities.First().ReffResources.First(x => x.Domain != null);
-
-            reffResource.Title = "MyTitle";
-            reffResource.Description = "MyDescription";
+            var firstUniversity = universities.First();
+            int i = 0;
+            foreach (var resource in firstUniversity.ReffResources)
+            {
+                resource.Title = "MyTitle" + ++i;
+                resource.Description = "MyDescription" + ++i;
+            }
 
             var outputService = _container.Resolve<IReffContentOutputService>();
             outputService.WriteContent(universities.First());
@@ -35,6 +38,7 @@ namespace MajesticAnalyzer
             var builder = new ContainerBuilder();
 
             builder.RegisterType<UniversitiesLoaderService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<UniversityLoaderService>().AsImplementedInterfaces().SingleInstance();
             
             //Majestic
             builder.RegisterType<WebsitesInfoLoader>().AsImplementedInterfaces().SingleInstance();
