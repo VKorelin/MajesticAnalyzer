@@ -94,7 +94,7 @@ namespace MajesticAnalyzer.Tests
             CollectionAssert.AreEquivalent(
                 resource11.Backlinks,
                 new List<string> { backlink111, backlink112 });
-            resource11.University.ShouldBe(universityInfo1);
+            resource11.UniversityInfo.ShouldBe(universityInfo1);
             resource11.Domain.ShouldBe(domainInfo11);
             
             var reffResource12 = firstUniversity.ReffResources[1];
@@ -102,7 +102,7 @@ namespace MajesticAnalyzer.Tests
             CollectionAssert.AreEquivalent(
                 reffResource12.Backlinks,
                 new List<string> { backlink121 });
-            reffResource12.University.ShouldBe(universityInfo1);
+            reffResource12.UniversityInfo.ShouldBe(universityInfo1);
             reffResource12.Domain.ShouldBe(domainInfo12);
             
             // Second university
@@ -115,7 +115,7 @@ namespace MajesticAnalyzer.Tests
             CollectionAssert.AreEquivalent(
                 resource21.Backlinks,
                 new List<string> { backlink211 });
-            resource21.University.ShouldBe(universityInfo2);
+            resource21.UniversityInfo.ShouldBe(universityInfo2);
             resource21.Domain.ShouldBe(domainInfo21);
         }
 

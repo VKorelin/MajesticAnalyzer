@@ -8,7 +8,7 @@ namespace MajesticAnalyzer.Domain
 
         public List<string> Backlinks { get; }
 
-        public UniversityInfo University { get; set; }
+        public UniversityInfo UniversityInfo { get; set; }
 
         public string Description { get; set; }
 

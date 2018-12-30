@@ -53,7 +53,7 @@ namespace MajesticAnalyzer
                 new ReffResource
                 {
                     Domain = x,
-                    University = universityInfo
+                    UniversityInfo = universityInfo
                 }));
                 
             var reffResourcesMap = reffResources.ToDictionary(x => x.Domain.Host);

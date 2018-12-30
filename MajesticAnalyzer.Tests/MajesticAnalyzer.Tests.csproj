@@ -79,6 +79,7 @@
     <Compile Include="Html\HtmlWrapperFactoryTests.cs" />
     <Compile Include="Html\HtmlLoaderFactoryTests.cs" />
     <Compile Include="IO\PathProviderTests.cs" />
+    <Compile Include="IO\ReffContentOutputServiceTests.cs" />
     <Compile Include="Majestic\BacklinksLoaderTests.cs" />
     <Compile Include="Majestic\RefdomainsLoaderTests.cs" />
     <Compile Include="Majestic\WebsitesInfoLoaderTests.cs" />

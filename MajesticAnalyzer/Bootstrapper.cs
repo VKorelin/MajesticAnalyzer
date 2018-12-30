@@ -1,9 +1,10 @@
 using System;
+using System.Linq;
 using Autofac;
 using MajesticAnalyzer.Html;
 using MajesticAnalyzer.IO;
+using MajesticAnalyzer.IO.Csv;
 using MajesticAnalyzer.Majestic;
-using MajesticAnalyzer.Parser;
 
 namespace MajesticAnalyzer
 {
@@ -18,7 +19,15 @@ namespace MajesticAnalyzer
 
         public void LoadUniversities()
         {
-            _container.Resolve<IUniversitiesLoaderService>().LoadUniversities();
+            var universities = _container.Resolve<IUniversitiesLoaderService>().LoadUniversities();
+
+            var reffResource = universities.First().ReffResources.First(x => x.Domain != null);
+
+            reffResource.Title = "MyTitle";
+            reffResource.Description = "MyDescription";
+
+            var outputService = _container.Resolve<IReffContentOutputService>();
+            outputService.WriteContent(universities.First());
         }
 
         private IContainer InitializeContainer()
@@ -35,9 +44,8 @@ namespace MajesticAnalyzer
             //IO
             builder.RegisterType<ConfigurationProvider>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<PathProvider>().AsImplementedInterfaces().SingleInstance();
-            
-            //Parser
-            builder.RegisterGeneric(typeof(CsvParser<,>)).AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<ReffContentOutputService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterGeneric(typeof(CsvHandler<,>)).AsImplementedInterfaces().SingleInstance();
 
             //HtmlLoader
             builder.RegisterType<HtmlLoader>().AsImplementedInterfaces();

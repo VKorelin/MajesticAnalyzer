@@ -53,8 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IO\Csv\BacklinksMap.cs" />
-    <Compile Include="IO\Csv\CsvParser.cs" />
-    <Compile Include="IO\Csv\CsvWriter.cs" />
+    <Compile Include="IO\Csv\CsvHandler.cs" />
     <Compile Include="IO\Csv\ICsvParser.cs" />
     <Compile Include="IO\Csv\ICsvWriter.cs" />
     <Compile Include="IO\Csv\RefdomainsMap.cs" />
